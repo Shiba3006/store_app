@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_app/home_view.dart';
+import 'package:store_app/views/home_view.dart';
 
 void main() {
   runApp(const StoreApp());
@@ -19,7 +19,10 @@ class StoreApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const HomeView(),
+      routes: {
+        HomeView.id: (context) => const HomeView(),
+      },
+      initialRoute: HomeView.id,
     );
   }
 }
