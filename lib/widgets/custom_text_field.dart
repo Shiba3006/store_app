@@ -6,21 +6,17 @@ class CustomTextField extends StatelessWidget {
     this.hintText = '',
     this.onChanged,
     this.isPassword = false,
+    this.keyboardType,
   });
   final String hintText;
   final Function(String)? onChanged;
   final bool? isPassword;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      validator: (value) {
-        if (value!.isEmpty) {
-          return 'Field cannot be empty';
-        }
-        return null;
-      },
-      keyboardType: TextInputType.text,
+    return TextField(
+      keyboardType: keyboardType,
       style: const TextStyle(color: Colors.black),
       onChanged: onChanged,
       decoration: InputDecoration(
