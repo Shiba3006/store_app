@@ -14,10 +14,11 @@ class StoreApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepOrange,
-        ),
-        useMaterial3: true,
+        scaffoldBackgroundColor: Colors.white,
+        // colorScheme: ColorScheme.fromSeed(
+        //   seedColor: Colors.deepOrange,
+        // ),
+        useMaterial3: false,
       ),
       routes: {
         HomeView.id: (context) => const HomeView(),
