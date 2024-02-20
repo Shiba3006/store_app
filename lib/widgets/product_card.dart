@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
@@ -12,14 +11,12 @@ class ProductCard extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          height: 130,
-          width: 220,
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.2),
                 blurRadius: 40,
-                offset: const Offset(2, 5),
+                offset: const Offset(3, 5),
                 spreadRadius: 0,
               ),
             ],
@@ -61,7 +58,7 @@ class ProductCard extends StatelessWidget {
         ),
         Positioned(
           right: 32,
-          bottom: 65,
+          top: -40,
           child: Image.network(
             'https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg',
             height: 100,
