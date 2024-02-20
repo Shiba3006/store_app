@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:store_app/models/product_model.dart';
 import 'package:store_app/services/get_all_caegories_service.dart';
 import 'package:store_app/services/get_all_products_service.dart';
+import 'package:store_app/widgets/custom_app_bar.dart';
 import 'package:store_app/widgets/product_card.dart';
 
 class HomeView extends StatelessWidget {
@@ -12,22 +13,9 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        elevation: 0,
-        title: const Text(
-          'New Trends',
-          style: TextStyle(color: Colors.black),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              FontAwesomeIcons.cartPlus,
-            ),
-          ),
-        ],
+      appBar: const CustomAppBar(
+        title: 'New Trends',
+        icon: FontAwesomeIcons.cartPlus,
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16, top: 60),
