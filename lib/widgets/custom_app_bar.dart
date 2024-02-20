@@ -5,10 +5,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
     required this.title,
-    required this.icon,
+    this.icon,
   });
   final String title;
-  final IconData icon;
+  final IconData? icon;
 
   @override
   Size get preferredSize => const Size.fromHeight(60);
@@ -28,6 +28,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () {},
           icon: Icon(
             icon,
+            color: Colors.black,
           ),
         ),
       ],
