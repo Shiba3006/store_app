@@ -30,22 +30,32 @@ class HomeView extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16, top: 50),
+        padding: const EdgeInsets.only(left: 16, right: 16, top: 60),
         child: FutureBuilder<List<ProductModel>>(
             future: GetallProductsService().getAllProducts(),
             builder: (context, snapshots) {
-              return GridView.builder(
-                clipBehavior: Clip.none,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 1.5,
-                  mainAxisSpacing: 80,
-                  crossAxisSpacing: 10,
-                ),
-                itemBuilder: (context, index) {
-                  return const ProductCard();
-                },
-              );
+              if (snapshots.hasData) {
+                List<ProductModel> productsList = snapshots.data!;
+                return GridView.builder(
+                  itemCount: productsList.length,
+                  clipBehavior: Clip.none,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 1.5,
+                    mainAxisSpacing: 100,
+                    crossAxisSpacing: 10,
+                  ),
+                  itemBuilder: (context, index) {
+                    return ProductCard(
+                      productModel: productsList[index],
+                    );
+                  },
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
             }),
       ),
     );

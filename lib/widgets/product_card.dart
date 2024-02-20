@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/models/product_model.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
+    required this.productModel,
   });
-
+  final ProductModel productModel;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -30,17 +32,17 @@ class ProductCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Pr Name',
-                    style: TextStyle(
+                  Text(
+                    productModel.title.substring(0, 12),
+                    style: const TextStyle(
                       color: Colors.grey,
                     ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
-                        r'$60.30',
+                      Text(
+                        r'$ ' '${productModel.price}',
                       ),
                       IconButton(
                         onPressed: () {},
@@ -58,10 +60,11 @@ class ProductCard extends StatelessWidget {
         ),
         Positioned(
           right: 32,
-          top: -40,
+          top: -50,
           child: Image.network(
-            'https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg',
+            productModel.image,
             height: 100,
+            width: 100,
           ),
         ),
       ],
