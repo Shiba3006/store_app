@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/models/product_model.dart';
+import 'package:store_app/services/update_product_service.dart';
 import 'package:store_app/widgets/custom_app_bar.dart';
 import 'package:store_app/widgets/custom_button.dart';
 import 'package:store_app/widgets/custom_text_field.dart';
@@ -13,11 +15,12 @@ class UpdateProductView extends StatelessWidget {
   });
   static String id = 'UpdateProduct';
 
-  String? name, description, image;
-  int? price;
+  String? name, description, image, price;
 
   @override
   Widget build(BuildContext context) {
+    ProductModel productModel =
+        ModalRoute.of(context)!.settings.arguments as ProductModel;
     const Widget _ = SizedBox(
       height: 10,
     );
@@ -45,7 +48,7 @@ class UpdateProductView extends StatelessWidget {
                 hintText: 'price',
                 keyboardType: TextInputType.number,
                 onChanged: (value) {
-                  price = int.parse(value);
+                  price = value;
                 },
               ),
               _,
@@ -63,8 +66,18 @@ class UpdateProductView extends StatelessWidget {
               const SizedBox(
                 height: 50,
               ),
-              const CustomButton(
+              CustomButton(
                 buttonText: 'Update',
+                onPressed: () {
+                  UpdateProductService().updateProduct(
+                    id: name!,
+                    title: name!,
+                    price: price!,
+                    description: description!,
+                    image: image!,
+                    category: productModel.category,
+                  );
+                },
               ),
             ],
           ),

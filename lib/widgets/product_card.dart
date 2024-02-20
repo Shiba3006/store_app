@@ -12,7 +12,11 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, UpdateProductView.id);
+        Navigator.pushNamed(
+          context,
+          UpdateProductView.id,
+          arguments: productModel,
+        );
       },
       child: Stack(
         clipBehavior: Clip.none,
