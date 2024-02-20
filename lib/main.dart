@@ -15,7 +15,7 @@ class StoreApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
+          seedColor: Colors.deepOrange,
         ),
         useMaterial3: true,
       ),

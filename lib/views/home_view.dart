@@ -21,6 +21,54 @@ class HomeView extends StatelessWidget {
           ),
         ],
       ),
+      body: Container(
+        
+        height: 130,
+        width: 220,
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.2),
+              blurRadius: 40,
+              offset: const Offset(2, 5),
+              spreadRadius: 0,
+            ),
+          ],
+        ),
+        child: Card(
+          elevation: 10,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Pr Name',
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      r'$60.30',
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.favorite,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
