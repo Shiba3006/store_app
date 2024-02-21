@@ -6,16 +6,27 @@ import 'package:store_app/services/get_all_products_service.dart';
 import 'package:store_app/widgets/custom_app_bar.dart';
 import 'package:store_app/widgets/product_card.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
   static String id = 'HomeView';
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  @override
+  void initState() {
+    GetallProductsService().getAllProducts();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'New Trends',
-        icon: FontAwesomeIcons.cartPlus,
+        actionIcon: FontAwesomeIcons.cartPlus,
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16, top: 60),

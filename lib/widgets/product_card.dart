@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store_app/models/product_model.dart';
-import 'package:store_app/views/update_product.dart';
+import 'package:store_app/views/update_product_view.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
